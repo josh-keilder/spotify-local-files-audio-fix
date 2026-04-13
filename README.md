@@ -21,7 +21,9 @@ pip install -r requirements.txt
 2. External Dependency:
 You must have `ffmpeg` installed and added to your system's PATH for `pydub` to export files.
 
-You can check by running:
+[Download Here](https://ffmpeg.org/download.html)
+
+You can check installation by running:
 ```bash
 ffmpeg -version
 ```
