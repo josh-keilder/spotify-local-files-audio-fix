@@ -1,6 +1,6 @@
 # Fixing Songs in Spotify's Local Files
 
-This repository contains a python script to change audio file sample rates to the same value.
+This repository contains a Python script to standardize audio sample rates, specifically designed to fix playback issues in Spotify's Local Files.
 
 ## Why?
 I'm someone who listens to a lot of unreleased music and I use spotify to listen to the songs I download. Unfortunately there was an annoying issue where if I were to try to play my local files playlist, songs would not autoplay. They would simply stay stuck at **0:00** without playing. After a lot of researching, I found out the issue was the sample rate set for the audio file. Spotify specifically is quite strict on what they want songs to be at (I'm assuming that is) and if songs aren't set to **44.1kHz**, then it will simply not autoplay songs. So after learning this, I went through each song and checked to see if they were set at 44.1kHz, and lo and behold, a lot of them were set at 48.0kHz. 
