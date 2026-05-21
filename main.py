@@ -1,4 +1,5 @@
 from pydub import AudioSegment
+from pydub.utils import mediainfo
 import os
 
 # Replace with the path to your folder of songs!
@@ -32,10 +33,17 @@ if __name__ == "__main__":
                     f"Original Sample Rate for {song_file}: {raw_audio.frame_rate} Hz"
                 )
 
+                original_tags = mediainfo(file_path).get("TAG", {})
+
                 # Convert the audio to 44.1kHz and export it
                 resampled_audio = raw_audio.set_frame_rate(44100)
                 print(f"New Sample Rate for {song_file}: {raw_audio.frame_rate} Hz")
-                resampled_audio.export(temp_path, format="mp3")
+                resampled_audio.export(
+                    temp_path,
+                    format="mp3",
+                    tags=original_tags,
+                    parameters=["-map_metadata", "0"],
+                )
 
                 os.remove(file_path)
                 os.rename(temp_path, file_path)
